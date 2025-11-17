@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "description": "智能中英文地址翻译工具 - AI-powered address translation for cross-border e-commerce and logistics",
-  "author": "venn <vennduo@gmail.com>",
+  "author": "venn <vennduan@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vennduan/AdressTranslator"
+    "url": "https://github.com/vennduan/AddressTranslator"
   },
   "homepage": "https://transadd.site",
   "keywords": [

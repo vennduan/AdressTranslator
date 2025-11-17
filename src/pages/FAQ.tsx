@@ -52,7 +52,10 @@ const FAQ = () => {
     };
   }, [language, location.pathname]);
 
-  const faqContent = {
+  const faqContent: {
+    zh: { title: string; subtitle: string; items: FAQItem[] };
+    en: { title: string; subtitle: string; items: FAQItem[] };
+  } = {
     zh: {
       title: '常见问题 FAQ',
       subtitle: '关于地址翻译器的使用指南和常见问题解答',

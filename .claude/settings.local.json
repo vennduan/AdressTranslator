@@ -5,7 +5,12 @@
       "Bash(npm run dev:*)",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add -A)"
+      "Bash(git add -A)",
+      "Bash(timeout 10 git push origin main)",
+      "Bash(git config --list)",
+      "Bash(npm run build:*)",
+      "Bash(npm run preview:*)",
+      "Bash(\"$env:NODE_ENV\" = \"production\")"
     ],
     "deny": [],
     "ask": []

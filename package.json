@@ -1,14 +1,35 @@
 {
   "name": "AddressFlow",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "智能中英文地址翻译工具 - AI-powered address translation for cross-border e-commerce and logistics",
+  "author": "venn <vennduo@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vennduan/AdressTranslator"
+  },
+  "homepage": "https://transadd.site",
+  "keywords": [
+    "address-translator",
+    "translation",
+    "cross-border",
+    "e-commerce",
+    "logistics",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "AI-translator",
+    "chinese-english"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && npm run preview"
   },
+  "private": false,
   "dependencies": {
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",

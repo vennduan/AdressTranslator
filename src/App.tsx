@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { ArrowDownUp, Upload, Users, Globe } from 'lucide-react'
+import { ArrowDownUp, Upload, Users } from 'lucide-react'
 import TranslationBox from './components/TranslationBox'
 import ThemeToggle from './components/ThemeToggle'
+import LanguageSwitcher from './components/LanguageSwitcher'
 import { ThemeProvider } from './contexts/ThemeContext'
 import './index.css'
 import Footer from './components/Footer'
@@ -9,7 +10,7 @@ import { translations } from './i18n/translations'
 import { useLanguage } from './contexts/LanguageContext'
 
 function AppContent() {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const t = translations[language];
 
   const [inputText, setInputText] = useState('')
@@ -79,7 +80,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-white to-slate-100 dark:from-black dark:to-zinc-900 p-4 sm:p-8 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="flex justify-end items-center gap-4 mb-4">
           <div className="flex items-center gap-3">
             <a
@@ -97,28 +98,7 @@ function AppContent() {
           </div>
 
           {/* 语言切换器 */}
-          <div className="flex bg-white/70 dark:bg-zinc-900/70 rounded-lg p-1 border border-slate-200/50 dark:border-zinc-800/50">
-            <button
-              onClick={() => setLanguage('zh')}
-              className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                language === 'zh'
-                  ? 'bg-blue-600 text-white'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
-              }`}
-            >
-              中文
-            </button>
-            <button
-              onClick={() => setLanguage('en')}
-              className={`px-3 py-1 text-sm rounded-md transition-colors ${
-                language === 'en'
-                  ? 'bg-blue-600 text-white'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
-              }`}
-            >
-              English
-            </button>
-          </div>
+          <LanguageSwitcher />
 
           <ThemeToggle />
         </div>

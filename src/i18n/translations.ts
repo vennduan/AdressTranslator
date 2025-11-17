@@ -37,6 +37,9 @@ export interface Translations {
   errors: {
     translationFailed: string;
   };
+  tips: {
+    translationTips: string;
+  };
 }
 
 export const translations: Record<'zh' | 'en', Translations> = {
@@ -78,6 +81,9 @@ export const translations: Record<'zh' | 'en', Translations> = {
     },
     errors: {
       translationFailed: '翻译失败，请重试'
+    },
+    tips: {
+      translationTips: '服务器仅做临时中转，通过严格规范格式，海量数据训练的AI即时翻译，无存储动作，保护您的数据安全！'
     }
   },
   en: {
@@ -118,6 +124,9 @@ export const translations: Record<'zh' | 'en', Translations> = {
     },
     errors: {
       translationFailed: 'Translation failed. Please try again.'
+    },
+    tips: {
+      translationTips: 'The server only does the relay, and the AI translation is done through the standardized format, no storage action, protecting your data security!'
     }
   }
 };

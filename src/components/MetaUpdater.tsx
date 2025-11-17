@@ -88,7 +88,7 @@ function MetaUpdater({ customTitle, customDescription }: MetaUpdaterProps) {
     // 根据语言更新 html lang 属性
     document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
 
-  }, [routeName, customTitle, customDescription, language]);
+  }, [location.pathname, customTitle, customDescription, language]);
 
   return null;
 }

@@ -3,8 +3,8 @@ const Footer = () => {
     <footer className="py-4 mt-auto border-t border-slate-200/50 dark:border-zinc-800/50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-3">
-          {/* 透明度、隐私政策和服务条款链接 */}
-          <div className="flex items-center gap-3 text-sm">
+          {/* 导航链接 */}
+          <div className="flex items-center gap-4 text-sm flex-wrap justify-center">
             <a
               href="/transparency"
               className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -24,6 +24,20 @@ const Footer = () => {
               className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
               Terms of Service
+            </a>
+            <span className="text-slate-400 dark:text-slate-600">|</span>
+            <a
+              href="/faq"
+              className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              FAQ
+            </a>
+            <span className="text-slate-400 dark:text-slate-600">|</span>
+            <a
+              href="mailto:vennduo@gmail.com"
+              className="text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Contact: vennduo@gmail.com
             </a>
           </div>
 

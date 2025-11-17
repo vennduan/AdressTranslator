@@ -1,7 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const TermsOfService = () => {
   const [language, setLanguage] = useState<'zh' | 'en'>('zh');
+  const location = useLocation();
+
+  useEffect(() => {
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'LegalService',
+      name: language === 'zh' ? '地址翻译器 - 服务条款' : 'Address Translator - Terms of Service',
+      description: language === 'zh'
+        ? '使用地址翻译器的服务条款和条件。'
+        : 'Terms and conditions for using the Address Translator service.',
+      provider: {
+        '@type': 'Organization',
+        name: 'Address Translator',
+        url: 'https://transadd.site'
+      },
+      areaServed: 'Global',
+      availableLanguage: ['Chinese', 'English']
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    script.id = 'terms-structured-data';
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('terms-structured-data');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, [language, location.pathname]);
 
   const content = {
     zh: {

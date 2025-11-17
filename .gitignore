@@ -89,6 +89,8 @@ jspm_packages/
 .DS_Store
 *.sublime-project
 *.sublime-workspace
+.cursor/
+.claude/
 
 # OS generated files
 .DS_Store

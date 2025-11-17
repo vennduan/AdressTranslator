@@ -8,6 +8,7 @@ import './index.css'
 import Footer from './components/Footer'
 import { translations } from './i18n/translations'
 import { useLanguage } from './contexts/LanguageContext'
+import MetaUpdater from './components/MetaUpdater'
 
 function AppContent() {
   const { language } = useLanguage();
@@ -80,6 +81,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-white to-slate-100 dark:from-black dark:to-zinc-900 p-4 sm:p-8 transition-colors duration-300">
+      <MetaUpdater />
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-end items-center gap-4 mb-4">
           <div className="flex items-center gap-3">
@@ -193,6 +195,7 @@ function AppContent() {
                       src="https://img.cuasedu.org/file/venvo_wechat.png"
                       alt={t.modals.batch.wechat}
                       className="w-full h-full rounded-lg"
+                      loading="lazy"
                     />
                   </div>
                   <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -233,6 +236,7 @@ function AppContent() {
                       src="https://img.cuasedu.org/file/venvo_wechat.png"
                       alt={t.modals.manual.wechat}
                       className="w-full h-full rounded-lg"
+                      loading="lazy"
                     />
                   </div>
                   <p className="text-sm text-slate-500 dark:text-slate-400">

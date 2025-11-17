@@ -1,7 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   const [language, setLanguage] = useState<'zh' | 'en'>('zh');
+  const location = useLocation();
+
+  useEffect(() => {
+    // 添加Privacy Policy Page专用结构化数据
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'LegalService',
+      name: language === 'zh' ? '地址翻译器 - 隐私政策' : 'Address Translator - Privacy Policy',
+      description: language === 'zh'
+        ? '地址翻译器隐私政策说明我们如何收集、使用和保护您的个人信息。'
+        : 'Privacy Policy for Address Translator explains how we collect, use, and protect your personal information.',
+      provider: {
+        '@type': 'Organization',
+        name: 'Address Translator',
+        url: 'https://transadd.site'
+      },
+      areaServed: 'Global',
+      availableLanguage: ['Chinese', 'English'],
+      hasCredential: 'GDPR Compliant'
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    script.id = 'privacy-policy-structured-data';
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('privacy-policy-structured-data');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, [language, location.pathname]);
 
   const content = {
     zh: {

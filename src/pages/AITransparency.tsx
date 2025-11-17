@@ -1,7 +1,55 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const AITransparency = () => {
   const [language, setLanguage] = useState<'zh' | 'en'>('zh');
+  const location = useLocation();
+
+  useEffect(() => {
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      '@id': 'https://transadd.site/transparency',
+      headline: language === 'zh' ? 'AI透明度声明 - 地址翻译器' : 'AI Transparency Statement - Address Translator',
+      description: language === 'zh'
+        ? '了解地址翻译器如何使用AI技术，以及我们对透明度、公平性和安全性的承诺。'
+        : 'Learn how Address Translator uses AI technology and our commitment to transparency, fairness, and security.',
+      keywords: language === 'zh'
+        ? ['AI翻译', '透明度', 'Mistral AI', '隐私保护', '地址翻译']
+        : ['AI translation', 'transparency', 'Mistral AI', 'privacy protection', 'address translation'],
+      author: {
+        '@type': 'Organization',
+        name: 'Address Translator',
+        url: 'https://transadd.site'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Address Translator',
+        url: 'https://transadd.site'
+      },
+      inLanguage: language === 'zh' ? 'zh-CN' : 'en-US',
+      aiTransparencyNote: language === 'zh'
+        ? '本服务使用Mistral AI提供翻译功能，所有数据处理都在用户本地进行。'
+        : 'This service uses Mistral AI for translation, all data processing is done locally on the user\'s device.',
+      accountablePerson: {
+        '@type': 'Organization',
+        name: 'Address Translator Team'
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    script.id = 'ai-transparency-structured-data';
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('ai-transparency-structured-data');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, [language, location.pathname]);
 
   const content = {
     zh: {

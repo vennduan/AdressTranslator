@@ -1,0 +1,25 @@
+# 地址翻译器 - robots.txt
+# 允许所有搜索引擎爬取
+
+User-Agent: *
+Allow: /
+
+# 禁止爬取敏感目录（如果有的话）
+# Disallow: /admin/
+# Disallow: /api/
+
+# 网站地图
+Sitemap: https://transadd.site/sitemap.xml
+
+# 爬取延迟（可选，避免服务器负载过高）
+# Crawl-delay: 1
+
+# 重要页面优先级
+User-agent: *
+Disallow: /*?*  # 禁止参数化URL
+Allow: /$
+Allow: /privacy$
+Allow: /cn-to-en-address$
+Allow: /address-formatting$
+Allow: /cross-border-address$
+Allow: /logistics-address-translation$
